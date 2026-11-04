@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berkah Nasi Catering - Catering Nasi Enak & Murah</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+:root{--orange:#e67e22;--dark:#2c3e50;--cream:#fff8f0;--green:#27ae60}
+body{background:var(--cream);color:#333;line-height:1.6}
+header{background:#fffont-size:18px}
+.btn{display:inline-block;background:var(--orange);color:#fff;padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:700;border:none;cursor:pointer}
+.btn-green{background:var(--green)}
+.section{padding:60px 5%;max-width:1100px;margin:auto}
+.section h2{text-align:center;font-size:30px;margin-bottom:8px;color:var(--dark)}
+.subtitle{text-align:center;color:#777;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.08);padding-bottom:20px;text-align:center}
+.card img{width:100%;height:200px;object-fit:cover}
+.card h3{margin:15px 0 5px} .price{color:var(--orange);font-size:22px;font-weight:800;margin:8px 0}
+.card ul{list-style:none;text-align:left;padding:0 20px;font-size:14px;color:#555}
+.card ul li{padding:4px 0} .card ul li:before{content:"✅ "}
+.calc-box{background:#fff;padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.08);max-width:600px;margin:auto}
+.calc-box label{display:block;margin-top:15px;font-weight:600}
+.calc-box select,.calc-box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;margin-top:5px}
+#hasil{margin-top:20px;background:#fef9e7;padding:15px;border-radius:10px;text-align:center;font-weight:700;font-size:18px}
+.testi{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+footer{background:var(--dark);color:#fff;text-align:center;padding:30px 20px;margin-top:40px}
+@media(max-width:600px){.hero h1{font-size:30px} nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">BERKAH <span>NASI</span></div>
+  <nav><a href="#menu">Menu</a><a href="#harga">Harga</a><a href="#testimoni">Testimoni</a><a href="#pesan">Pesan</a></nav>
+  <a href="https://wa.me/6281234567890" class="btn" style="padding:8px 18px">Order WA</a>
+</header>
+
+<section class="hero">
+  <p>⭐ 4.9 | 1.200+ Porsi Terkirim | Halal & Higienis</p>
+  <h1>Catering Nasi Enak,<br><span>Murah & Tepat Waktu</span></h1>
+  <p>Untuk acara kantor, hajatan, pengajian, ulang tahun & sekolah di Rejotangan - Tulungagung.</p>
+  <a href="#menu" class="btn">Lihat Menu 🍱</a>
+  <a href="https://wa.me/6281234567890?text=Halo%20min,%20mau%20pesan%20catering" class="btn btn-green">Chat WhatsApp</a>
+</section>
+
+<section class="section" id="menu">
+  <h2>Paket Best Seller Kami</h2>
+  <p class="subtitle">Gratis ongkir radius 5km • Minimal order 20 porsi</p>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600" alt="Nasi Kotak">
+      <h3>🍱 Nasi Kotak Hemat</h3><p>Nasi, Ayam Goreng, Mie, Sambal, Buah</p>
+      <div class="price">Rp 15.000 / porsi</div>
+      <ul><li>Box + Sendok + Tisu</li><li>Cocok untuk rapat & pengajian</li></ul><br>
+      <button class="btn" onclick="pilihPaket('Nasi Kotak Hemat',15000)">Pesan Paket Ini</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600" alt="Nasi Tumpeng">
+      <h3>🎉 Nasi Tumpeng Mini</h3><p>Nasi Kuning, Ayam Suwir, Telur, Urap</p>
+      <div class="price">Rp 18.000 / porsi</div>
+      <ul><li>Kemasan mika cantik</li><li>Cocok untuk syukuran & ultah</li></ul><br>
+      <button class="btn" onclick="pilihPaket('Nasi Tumpeng Mini',18000)">Pesan Paket Ini</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=600" alt="Prasmanan">
+      <h3>🥘 Prasmanan Hajatan</h3><p>2x Lauk + Sayur + Buah + Air Mineral</p>
+      <div class="price">Rp 25.000 / porsi</div>
+      <ul><li>Free pelayan 2 orang</li><li>Peralatan prasmanan lengkap</li></ul><br>
+      <button class="btn" onclick="pilihPaket('Prasmanan Hajatan',25000)">Pesan Paket Ini</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="harga" style="background:#fff">
+  <h2>Hitung Estimasi Biaya</h2>
+  <p class="subtitle">Langsung hitung, tanpa perlu tanya-tanya dulu</p>
+  <div class="calc-box">
+    <label>Pilih Paket</label>
+    <select id="paket"><option value="15000">Nasi Kotak Hemat - Rp 15.000</option><option value="18000">Nasi Tumpeng Mini - Rp 18.000</option><option value="25000">Prasmanan Hajatan - Rp 25.000</option></select>
+    <label>Jumlah Porsi</label>
+    <input type="number" id="jumlah" value="50" min="20" oninput="hitung()">
+    <label>Tanggal Acara</label>
+    <input type="date" id="tanggal">
+    <div id="hasil">Total Estimasi: Rp 750.000 untuk 50 porsi</div>
+    <br><button class="btn btn-green" style="width:100%" onclick="orderWA()">Pesan Via WhatsApp 📲</button>
+  </div>
+</section>
+
+<section class="section" id="testimoni">
+  <h2>Kata Pelanggan</h2>
+  <div class="grid">
+    <div class="testi"><p>"Rasanya enak banget, ayamnya empuk. Pesan 100 kotak untuk pengajian, datang tepat waktu."</p><b>- Bu Siti, Rejotangan</b> ⭐⭐⭐⭐⭐</div>
+    <div class="testi"><p>"Harga bersahabat untuk anak sekolah. Admin fast respon, recommended!"</p><b>- Pak Budi, SMPN 1 Rejotangan</b> ⭐⭐⭐⭐⭐</div>
+    <div class="testi"><p>"Tumpeng mininya cantik, buat foto bagus. Tamu-tamu pada nanya cateringnya dimana."</p><b>- Kak Rina, Tulungagung</b> ⭐⭐⭐⭐⭐</div>
+  </div>
+</section>
+
+<section class="section" id="pesan" style="text-align:center">
+  <h2>Cara Pesan Gampang Banget</h2>
+  <p>1. Pilih Paket & Jumlah → 2. Chat WhatsApp → 3. DP 50% → 4. Kami Antar Tepat Waktu</p><br>
+  <a href="https://wa.me/6281234567890" class="btn btn-green">Pesan Sekarang via WhatsApp</a>
+  <p style="margin-top:15px">📍 Jl. Raya Rejotangan, Tulungagung, Jawa Timur<br>⏰ Buka Setiap Hari 07.00 - 20.00 WIB</p>
+</section>
+
+<footer>
+  <h3>BERKAH NASI CATERING</h3>
+  <p>Dibuat untuk Tugas Akhir - Nama Kamu | NIM Kamu | 2026</p>
+  <p>© 2026 Berkah Nasi Catering. All Rights Reserved.</p>
+</footer>
+
+<script>
+function formatRupiah(n){return "Rp "+n.toLocaleString('id-ID')}
+function hitung(){
+  let harga=document.getElementById('paket').value;
+  let jml=document.getElementById('jumlah').value;
+  document.getElementById('hasil').innerText="Total Estimasi: "+formatRupiah(harga*jml)+" untuk "+jml+" porsi";
+}
+function pilihPaket(nama,harga){
+  document.getElementById('paket').value=harga; hitung();
+  document.getElementById('harga').scrollIntoView({behavior:'smooth'});
+  alert('Kamu pilih '+nama+'! Silahkan atur jumlah porsi di bawah.');
+}
+function orderWA(){
+  let paket=document.getElementById('paket');
+  let namaPaket=paket.options[paket.selectedIndex].text;
+  let jml=document.getElementById('jumlah').value;
+  let tgl=document.getElementById('tanggal').value;
+  let total=paket.value*jml;
+  let pesan="Halo Berkah Nasi, saya mau pesan:%0A- Paket: "+namaPaket+"%0A- Jumlah: "+jml+" porsi%0A- Tanggal: "+tgl+"%0A- Total Estimasi: "+formatRupiah(total);
+  window.open("https://wa.me/628566568685?text="+pesan);
+}
+hitung();
+</script>
+</body>
+</html>
